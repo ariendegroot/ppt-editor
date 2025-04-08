@@ -1,22 +1,14 @@
 import ChurchForm from "@/components/forms/createPresentation";
 import { Presentation } from "../page";
 
-export default async function DienstPage({
-  params,
-}: {
-  params: { dienst: string[] };
+// Option 1: Let Next.js infer the types (recommended)
+export default async function DienstPage(props: {
+  params: Promise<{ dienst: string[] }>;
 }) {
+  const params = await props.params;
   // Get the path segments from the params
-  const pathSegments = params.dienst;
-
-  // Since we're in a server component, we can't directly access the full URL
-  // We'll construct it from the available information
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
-
-  // Construct the path
-  const path = `/${pathSegments.join("/")}`;
+  const { dienst } = params; // Remove the 'await' since params is not a Promise
+  const pathSegments = dienst;
 
   // Construct the query string
   const response = await fetch(
