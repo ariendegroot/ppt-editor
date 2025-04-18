@@ -11,10 +11,7 @@ export default async function DienstPage(props: {
   const pathSegments = dienst;
 
   // Construct the query string
-  const response = await fetch(
-    "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjEewWuTfakUedopNfDJJ79aBywbd9Op-sn6Z1xi6vxtTC4qEG7GJmAziYmR9w4nQSSn61CsuGkpAqsD5PWtzbfAxSv59K-nCzQLixZ_zs9u9oE1WCfPcWDx0icCJfM3VU-GlaMgkcJ51obXoHa0oE1OxEEmwT-t7XjKJRnkxqRFRPEp3geTztr38Kwgvjgi2MLQfuvqV-f8Vx6OByhJHPlPqCByBBql3SkZq2z4OdasJ0vgKXivlBYRi8zV8xSrSFd-fO1xKguBcvhTsVF_lQ2VSPaYQ&lib=MXtOAJdVTrkFsJNTg8HR3KV0iYKxH7YhB",
-    { method: "GET" }
-  );
+  const response = await fetch(process.env.DIENST_API_URL!, { method: "GET" });
 
   const date = pathSegments[0];
   const moment = pathSegments[1];
