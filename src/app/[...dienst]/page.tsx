@@ -25,18 +25,9 @@ export default async function DienstPage(props: {
   );
 
   return (
-    <>
-      <div className="bg-slate-700 sticky top-0">
-        <div className="max-w-5xl py-2 px-8">
-          <h1 className="text-2xl font-bold text-white">Presentatie maken</h1>
-        </div>
-      </div>
-      <div className="p-8">
-        <ChurchForm
-          prefillData={data[currentIndex]}
-          eveningData={data[currentIndex + 1]}
-        />
-      </div>
-    </>
+    <ChurchForm
+      prefillData={data[currentIndex]}
+      eveningData={data[currentIndex + 1]}
+    />
   );
 }
