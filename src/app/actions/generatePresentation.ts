@@ -29,7 +29,7 @@ export async function generatePresentation(formData: FormData) {
 
   console.log(payload);
 
-  const response = await fetch(process.env.PPT_API_URL + "generate_ppt", {
+  const response = await fetch(process.env.PPT_API_URL + "/generate_ppt", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
