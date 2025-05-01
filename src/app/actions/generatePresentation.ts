@@ -27,7 +27,6 @@ export async function generatePresentation(formData: FormData) {
     avond_ds_naam_tekst: formData.get('avond_ds_naam'),
   };
 
-  console.log(payload);
 
   const response = await fetch(process.env.PPT_API_URL + "/generate_ppt", {
     method: "POST",
@@ -36,9 +35,7 @@ export async function generatePresentation(formData: FormData) {
     },
     body: JSON.stringify(payload),
   });
-  //console.log(response);
-  //const data = await response.json();
-  //console.log({data})
+
   if (response.ok) {
     const blob = await response.blob();
     // You'll need to handle file download differently in a server action
