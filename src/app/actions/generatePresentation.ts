@@ -40,9 +40,7 @@ export async function generatePresentation(formData: FormData) {
     const blob = await response.blob();
     // You'll need to handle file download differently in a server action
     // This is just a placeholder
-    console.log('Presentation generated successfully');
     const filename = response.headers.get('Content-Disposition')?.split('filename=')[1];
-    console.log({filename})
     const strippedFileName = filename?.replace(/"/g, '');
     return { blob, filename: strippedFileName } as { blob: Blob; filename: string };
   }
